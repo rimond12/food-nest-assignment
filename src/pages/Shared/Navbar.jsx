@@ -1,21 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { NavLink } from "react-router";
+import logo from '../../assets/mainLogo.png'
 
 const Navbar = () => {
-
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(()=>{
+    const handleScroll = () =>{
+      setScrolled(window.scrollY > 20);
+    }
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  },[])
 
     const links = <>
-     <li>
-            <a>Item 1</a>
+     <li className="text-orange-400 font-extrabold text-xl hover:text-amber-600 ">
+            <NavLink to='/'>Home</NavLink>
           </li>
-          <li>
-            <a>Item 3</a>
+     <li className="text-orange-400 font-extrabold text-xl hover:text-amber-600">
+            <NavLink to='/'>Home</NavLink>
           </li>
-    
+        
     </>
 
 
   return (
-    <div className="navbar bg-base-100 shadow-sm">
+    <div className={`navbar md:px-15 lg:px-20 px-8  sticky top-0 z-50  py-5 transition-all duration-300 ease-in-out  ${scrolled ? 'bg-[#065f46] shadow-md': 'bg-transparent backdrop-blur-none '}`}>
+     
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -37,20 +47,21 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+            className="menu menu-sm dropdown-content bg-base-100   rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
            {links}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">daisyUI</a>
+        <img src={logo} alt="" className="w-15"/>
+        <a className=" ml-5 text-2xl text-emerald-600 font-extrabold">Food <span className="text-amber-600 font-extrabold">Nest</span></a>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
+        <ul className="gap-4 menu-horizontal text-white  px-1">
          {links}
         </ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Button</a>
+        <NavLink className='btn' to='/register'>Register</NavLink>
       </div>
     </div>
   );

@@ -5,11 +5,11 @@ const Footer = () => {
   return (
    <div className="relative">
     
-     <footer className="footer footer-horizontal footer-center bg-primary text-primary-content rounded-tr-[40%] rounded-tl-[60%]  p-10">
+     <footer className="footer footer-horizontal footer-center bg-emerald-900 mt-20 text-primary-content rounded-tr-[40%] rounded-tl-[70%]  p-10">
       <aside>
-       <img src={logo} alt="" className="w-[250px]" />
+       <img src={logo} alt="" className="w-[150px]" />
         <p className="font-bold">
-          ACME Industries Ltd.
+          
           <br />
           Providing reliable tech since 1992
         </p>
