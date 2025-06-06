@@ -2,6 +2,20 @@ import React from 'react';
 import { Link } from 'react-router';
 
 const Register = () => {
+
+
+  const handleRegister = e =>{
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    const photo = form.photo.value;
+    const name = form.name.value;
+    console.log(email,password,name,photo);
+    
+  }
+
+
     return (
         <div className="flex justify-center mt-10">
       <div className="w-full max-w-md p-4 rounded-md shadow sm:p-8 dark:bg-gray-50 dark:text-gray-800">
@@ -11,7 +25,7 @@ const Register = () => {
 
         {/* name */}
         <form
-        //   onSubmit={handleRegister}
+          onSubmit={handleRegister}
           noValidate=""
           action=""
           className="space-y-8"
@@ -38,7 +52,7 @@ const Register = () => {
               </label>
               <input
                 type="text"
-                name="Photo"
+                name="photo"
                 autoComplete="username"
                 placeholder=""
                 required
