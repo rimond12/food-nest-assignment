@@ -1,34 +1,56 @@
-import React, { useEffect, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import { NavLink } from "react-router";
-import logo from '../../assets/mainLogo.png'
+import logo from "../../assets/mainLogo.png";
+import { AuthContext } from "../../Context/AuthContext/AuthContext";
+import { Tooltip } from "react-tooltip";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
-  useEffect(()=>{
-    const handleScroll = () =>{
+  const { user, logOutUser } = use(AuthContext);
+  useEffect(() => {
+    const handleScroll = () => {
       setScrolled(window.scrollY > 20);
-    }
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  },[])
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
-    const links = <>
-     <li className="text-orange-400 font-extrabold text-xl hover:text-amber-600 ">
-            <NavLink to='/'>Home</NavLink>
-          </li>
-     <li className="text-orange-400 font-extrabold text-xl hover:text-amber-600">
-            <NavLink to='/'>Home</NavLink>
-          </li>
-        
+  const handleLogout = () => {
+    logOutUser()
+      .then(() => {
+        console.log("signout user");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const links = (
+    <>
+      <li className="text-orange-400 font-extrabold text-xl hover:text-amber-600 ">
+        <NavLink to="/">Home</NavLink>
+      </li>
+      <li className="text-orange-400 font-extrabold text-xl hover:text-amber-600">
+        <NavLink to="/addFood">Add A Food</NavLink>
+      </li>
     </>
-
+  );
 
   return (
-    <div className={`navbar md:px-15 lg:px-20 px-8  sticky top-0 z-50  py-5 transition-all duration-300 ease-in-out  ${scrolled ? 'bg-[#065f46] shadow-md': 'bg-transparent backdrop-blur-none '}`}>
-     
+    <div
+      className={`navbar md:px-15 lg:px-20 px-8  sticky top-0 z-50  py-5 transition-all duration-300 ease-in-out  ${
+        scrolled
+          ? "bg-[#065f46] shadow-md"
+          : "bg-transparent backdrop-blur-none "
+      }`}
+    >
       <div className="navbar-start">
         <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost bg-white lg:hidden">
+          <div
+            tabIndex={0}
+            role="button"
+            className="btn btn-ghost bg-white lg:hidden"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -49,20 +71,52 @@ const Navbar = () => {
             tabIndex={0}
             className="menu menu-sm dropdown-content bg-base-100   rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
-           {links}
+            {links}
           </ul>
         </div>
-        <img src={logo} alt="" className="w-15"/>
-        <a className=" ml-5 text-2xl text-emerald-600 font-extrabold">Food <span className="text-amber-600 font-extrabold">Nest</span></a>
+        <img src={logo} alt="" className="w-15" />
+        <a className=" ml-5 text-2xl text-emerald-600 font-extrabold">
+          Food <span className="text-amber-600 font-extrabold">Nest</span>
+        </a>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="gap-4 menu-horizontal text-white  px-1">
-         {links}
-        </ul>
+        <ul className="gap-4 menu-horizontal text-white  px-1">{links}</ul>
       </div>
       <div className="navbar-end gap-2">
-        <NavLink className='btn' to='/register'>Register</NavLink>
-        <NavLink className='btn' to='/Login'>Login</NavLink>
+        {user ? (
+          <button onClick={handleLogout} className="btn">
+            Logout
+          </button>
+        ) : (
+          <>
+            <NavLink to="/login" className="btn">
+              Login
+            </NavLink>
+            <NavLink to="/register" className="btn">
+              Register
+            </NavLink>
+          </>
+        )}
+        {user && (
+          <>
+            <img
+              className="w-[40px] h-[40px] rounded-full bg-white border border-gray-300"
+              src={user.photoURL || 'userIcon'}
+              alt="User"
+              data-tooltip-id="user-tooltip"
+              data-tooltip-content={user.displayName || "User"}
+              onError={(e) => {
+                e.target.onerror = null;
+                e.target.src = 'user';
+              }}
+            />
+            <Tooltip
+              id="user-tooltip"
+              place="bottom"
+              style={{ fontSize: "0.875rem", zIndex: 9999 }}
+            />
+          </>
+        )}
       </div>
     </div>
   );

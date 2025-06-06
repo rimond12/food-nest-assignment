@@ -1,34 +1,49 @@
-import React, { use } from 'react';
-import { Link } from 'react-router';
-import { AuthContext } from '../../Context/AuthContext/AuthContext';
+import React, { use, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router";
+import { AuthContext } from "../../Context/AuthContext/AuthContext";
+import toast from "react-hot-toast";
 
 const Login = () => {
+  const { logInUser, googleSignIn } = use(AuthContext);
+  const [error, setError] = useState("");
+  const location = useLocation();
+  const navigate = useNavigate();
 
-    const {logInUser} = use(AuthContext);
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
 
-    const handleLogin = e =>{
-        e.preventDefault();
-        const form = e.target;
-        const email = form.email.value;
-        const password = form.password.value;
+    // login user
+    logInUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        toast.success(`${user.email} Succesfully Login`);
+        navigate(`${location.state ? location.state : "/"}`);
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        const errorCode = error.code;
+        toast.error(errorMessage);
+        setError(errorCode);
+      });
+  };
 
-        // login user
-        logInUser(email, password)
-        .then(result =>{
-          console.log(result);
-          
-        })
-        .catch(error =>{
-          console.log(error);
-          
-        })
+  const handleGoogleSignIn = () => {
+    googleSignIn()
+      .then((result) => {
+        const user = result.user;
+        toast.success(`${user.email} Succesfully Login`);
+        navigate(`${location.state ? location.state : "/"}`);
+      })
+      .catch((error) => {
+        toast.error(error);
+      });
+  };
 
-
-
-    }
-
-    return (
-         <div className="flex justify-center mt-10">
+  return (
+    <div className="flex justify-center mt-10">
       <div className="w-full max-w-md p-4 rounded-md shadow sm:p-8 dark:bg-gray-50 dark:text-gray-800">
         <h2 className="mb-3 text-3xl font-semibold text-center">
           Login to your account
@@ -36,7 +51,7 @@ const Login = () => {
 
         <div className="my-6 space-y-4">
           <button
-            // onClick={handleGoogleSignIn}
+            onClick={handleGoogleSignIn}
             aria-label="Login with Google"
             type="button"
             className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 text-blue-700 dark:border-blue-600 focus:dark:ring-violet-600"
@@ -120,7 +135,7 @@ const Login = () => {
           >
             Sign in
           </button>
-          {/* {error && <p className="text-red-500 text-xs text-center">{error}</p>} */}
+          {error && <p className="text-red-500 text-xs text-center">{error}</p>}
           <p className="text-sm text-center dark:text-gray-600">
             Dont have account?
             <Link
@@ -133,7 +148,7 @@ const Login = () => {
         </form>
       </div>
     </div>
-    );
+  );
 };
 
 export default Login;

@@ -1,38 +1,60 @@
-import React, { use } from 'react';
-import { Link } from 'react-router';
-import { AuthContext } from '../../Context/AuthContext/AuthContext';
+import React, { use, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router";
+import { AuthContext } from "../../Context/AuthContext/AuthContext";
+import toast from "react-hot-toast";
 
 const Register = () => {
+  const { createUser, updateUser, setUser } = use(AuthContext);
+  const [error, setError] = useState("");
+  const location = useLocation();
+  const navigate = useNavigate();
 
-  const {createUser} = use(AuthContext);
-
-  const handleRegister = e =>{
+  const handleRegister = (e) => {
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
     const photo = form.photo.value;
     const name = form.name.value;
-    console.log(email,password,name,photo);
+    // console.log(email, password, name, photo);
+    if (!/[A-Z]/.test(password)) {
+      return setError("Password must include at least one uppercase letter.");
+    }
+    if (!/[a-z]/.test(password)) {
+      return setError("Password must include at least one lowercase letter.");
+    }
+    if (password.length < 6) {
+      return setError("Password must be at least 6 characters long.");
+    } else {
+      setError("");
+    }
 
     // create user
 
     createUser(email, password)
-    .then(result =>{
-      console.log(result);
-      
-    })
-    .catch(error =>{
-      console.log(error);
-      
-    })
+      .then((result) => {
+        const user = result.user;
+        toast.success(`${user.email} Succesfully Account Created`);
+        updateUser({ displayName: name, photoURL: photo })
+          .then(() => {
+            setUser({ ...user, displayName: name, photoURL: photo });
+          })
+          .catch((error) => {
+            toast.error(error);
+            setUser(user);
+          });
+        navigate(`${location.state ? location.state : "/"}`);
+        form.reset(user);
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        toast.error(errorMessage);
+      });
+  };
 
-    
-  }
-
-
-    return (
-        <div className="flex justify-center mt-10">
+  return (
+    <div className="flex justify-center mt-10">
       <div className="w-full max-w-md p-4 rounded-md shadow sm:p-8 dark:bg-gray-50 dark:text-gray-800">
         <h2 className="mb-3 text-3xl font-semibold text-center">
           Register to your account
@@ -124,7 +146,7 @@ const Register = () => {
         </form>
       </div>
     </div>
-    );
+  );
 };
 
 export default Register;
