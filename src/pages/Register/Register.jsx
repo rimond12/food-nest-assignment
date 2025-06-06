@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { use } from 'react';
 import { Link } from 'react-router';
+import { AuthContext } from '../../Context/AuthContext/AuthContext';
 
 const Register = () => {
 
+  const {createUser} = use(AuthContext);
 
   const handleRegister = e =>{
     e.preventDefault();
@@ -12,6 +14,19 @@ const Register = () => {
     const photo = form.photo.value;
     const name = form.name.value;
     console.log(email,password,name,photo);
+
+    // create user
+
+    createUser(email, password)
+    .then(result =>{
+      console.log(result);
+      
+    })
+    .catch(error =>{
+      console.log(error);
+      
+    })
+
     
   }
 
@@ -100,7 +115,7 @@ const Register = () => {
           <p className="text-sm text-center dark:text-gray-600">
             Already have an account?
             <Link
-              to="/auth/login"
+              to="/login"
               className="focus:underline text-red-500 font-bold hover:underline"
             >
               Login
