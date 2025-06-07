@@ -7,6 +7,9 @@ import { Tooltip } from "react-tooltip";
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const { user, logOutUser } = use(AuthContext);
+
+  console.log(user);
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
@@ -76,7 +79,7 @@ const Navbar = () => {
         </div>
         <img src={logo} alt="" className="w-15" />
         <a className=" ml-5 text-2xl text-emerald-600 font-extrabold">
-          Food <span className="text-amber-600 font-extrabold">Nest</span>
+          Food<span className="text-amber-600 font-extrabold">Nest</span>
         </a>
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -101,13 +104,13 @@ const Navbar = () => {
           <>
             <img
               className="w-[40px] h-[40px] rounded-full bg-white border border-gray-300"
-              src={user.photoURL || 'userIcon'}
+              src={user?.photoURL || "userIcon"}
               alt="User"
               data-tooltip-id="user-tooltip"
-              data-tooltip-content={user.displayName || "User"}
+              data-tooltip-content={user?.displayName || "User"}
               onError={(e) => {
                 e.target.onerror = null;
-                e.target.src = 'user';
+                e.target.src = "user";
               }}
             />
             <Tooltip

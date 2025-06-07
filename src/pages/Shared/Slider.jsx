@@ -29,7 +29,7 @@ const Slider = () => {
       >
         <SwiperSlide>
           <img
-            src="https://i.ibb.co/Q3Z9bh1t/happy-family-havinf-dinner-together.jpg"
+            src="https://i.ibb.co/BV2MbCr3/happy-family-havinf-dinner-together.webp"
             alt="Slide 1"
             className="w-full rounded-xl"
           />
