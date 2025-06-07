@@ -36,6 +36,9 @@ const Navbar = () => {
       <li className="text-orange-400 font-extrabold text-xl hover:text-amber-600">
         <NavLink to="/addFood">Add A Food</NavLink>
       </li>
+      <li className="text-orange-400 font-extrabold text-xl hover:text-amber-600">
+        <NavLink to="/availableFoods">Available Foods</NavLink>
+      </li>
     </>
   );
 

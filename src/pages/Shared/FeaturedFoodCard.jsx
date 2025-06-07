@@ -1,48 +1,47 @@
-import React from 'react';
+import React from "react";
+import { motion } from "framer-motion";
 
-const FeaturedFoodCard = ({food}) => {
-    const {food_photo} = food;
-    
-    
-    return (
-         <div class=" bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+const FeaturedFoodCard = ({ food, index }) => {
+  const { food_photo, food_name, notes, quantity } = food;
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{
+        duration: 0.8,
+        ease: "easeInOut",
+        delay: index * 0.1, // stagger effect if multiple cards
+      }}
+      viewport={{ once: true, amount: 0.3 }} // triggers when 30% of the card is in view
+      className="max-w-2xl mx-auto bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700"
+    >
       <a href="#">
-        <img class="rounded-t-lg" src={food_photo} alt="" />
+        <img
+          className="rounded-t-lg w-full h-[350px] object-cover"
+          src={food_photo}
+          alt={food_name}
+        />
       </a>
-      <div class="p-5">
+      <div className="p-5">
         <a href="#">
-          <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-            Noteworthy technology acquisitions 2021
+          <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+            {food_name}
           </h5>
         </a>
-        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-          Here are the biggest enterprise technology acquisitions of 2021 so
-          far, in reverse chronological order.
+        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+          {notes}
         </p>
-        <a
-          href="#"
-          class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-        >
-          Read more
-          <svg
-            class="rtl:rotate-180 w-3.5 h-3.5 ms-2"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 14 10"
-          >
-            <path
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M1 5h12m0 0L9 1m4 4L9 9"
-            />
-          </svg>
-        </a>
+        <div className="flex ">
+        <h2 className="bg-amber-500 p-2 rounded-full text-white font-semibold text-center my-4">
+          Available Quantity:{" "}
+          <span className="text-emerald-400 font-extrabold ">{quantity}</span>
+        </h2>
       </div>
-    </div>
-    );
+      </div>
+      
+    </motion.div>
+  );
 };
 
 export default FeaturedFoodCard;

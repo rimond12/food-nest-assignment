@@ -10,9 +10,8 @@ const Home = () => {
   return (
     <div>
       <Slider></Slider>
-      <Suspense fallback={<div>Loading...</div>}>
-        <FeaturedFoods featuredFoods={featuredFoods}></FeaturedFoods>
-      </Suspense>
+
+      <FeaturedFoods featuredFoods={featuredFoods}></FeaturedFoods>
     </div>
   );
 };
