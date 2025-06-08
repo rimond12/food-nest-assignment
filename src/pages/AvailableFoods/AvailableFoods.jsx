@@ -33,7 +33,7 @@ const AvailableFoods = () => {
       </h2>
 
       {/* Modern Filter Controls */}
-      <div className="mx-10 md:mx-30 flex flex-col md:flex-row md:items-center gap-4 mb-8 justify-between  p-4 rounded-t-2xl shadow-sm bg-emerald-800">
+      <div className=" md:mx-0 flex flex-col md:flex-row md:items-center gap-4 mb-8 justify-between  p-4 rounded-t-2xl shadow-sm bg-emerald-800">
         <input
           type="text"
           placeholder="🔍 Search food by name"
