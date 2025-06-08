@@ -33,19 +33,19 @@ const AvailableFoods = () => {
       </h2>
 
       {/* Modern Filter Controls */}
-      <div className=" md:mx-0 flex flex-col md:flex-row md:items-center gap-4 mb-8 justify-between  p-4 rounded-t-2xl shadow-sm bg-emerald-800">
+      <div className=" md:mx-0 flex flex-col md:flex-row md:items-center gap-4 mb-8 justify-between  p-4 rounded-full bg-gradient-to-b from-[#f7f5f2] to-[#ece9e6] text-gray-600 ">
         <input
           type="text"
           placeholder="🔍 Search food by name"
-          className="input input-bordered w-full md:max-w-xs"
+          className="input input-bordered w-full rounded-full md:max-w-xs text-black"
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
         />
 
         <div className="flex flex-row gap-2 items-center">
-          <label className="font-semibold md:w-30 text-white">Sort by:</label>
+          <label className="font-semibold md:w-30 text-gray-600">Sort by:</label>
           <select
-            className="select select-bordered"
+            className="select select-bordered rounded-full"
             value={sortOrder}
             onChange={(e) => setSortOrder(e.target.value)}
           >
@@ -55,7 +55,7 @@ const AvailableFoods = () => {
         </div>
 
         <button
-          className="btn btn-outline bg-gray-50"
+          className="btn btn-outline rounded-full bg-gray-50"
           onClick={() => setTwoColumn(!twoColumn)}
         >
           {twoColumn ? "🧱 3 Column View" : "📦 2 Column View"}
@@ -80,21 +80,23 @@ const AvailableFoods = () => {
           return (
             <div
               key={f._id}
-              className="bg-amber-500 text-white shadow-md hover:shadow-lg hover:shadow-emerald-800 transition duration-300 max-w-xl mx-auto rounded-2xl"
+              className="bg-gradient-to-b from-[#f7f5f2] to-[#ece9e6] text-white shadow-md hover:shadow-lg hover:shadow-emerald-800 transition duration-300 max-w-xl mx-auto rounded-2xl"
             >
               <figure className="px-10 pt-10">
                 <img
                   src={f.food_photo}
-                  alt={f.food_name}
-                  className="rounded-xl w-full h-[350px] object-cover"
+                  alt=""
+                  className="rounded-4xl w-full h-[350px] object-cover"
                 />
               </figure>
 
               <div className="card-body items-center text-center">
-                <h2 className="card-title text-2xl font-semibold">
+                <h2 className="card-title text-2xl font-semibold text-black">
                   {f.food_name}
                 </h2>
-                <p className="text-sm mt-2">Expires: {formattedDate}</p>
+                <p className="text-sm mt-2 text-gray-500">
+                  Expires: {formattedDate}
+                </p>
                 <div className="card-actions py-5">
                   <Link to={`/availableFoods/${f._id}`}>
                     <button className="px-10 py-3 rounded-full text-xl font-bold shadow-sm bg-green-500 hover:bg-emerald-800 cursor-pointer">

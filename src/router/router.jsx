@@ -6,6 +6,7 @@ import Login from "../pages/Login/Login";
 import AddFood from "../pages/AddFood/AddFood";
 import AvailableFoods from "../pages/AvailableFoods/AvailableFoods";
 import FoodDetails from "../pages/FoodDetails/FoodDetails";
+import MyFoodRequest from "../pages/MyFoodRequest.jsx/MyFoodRequest";
 
 const router = createBrowserRouter([
   {
@@ -28,8 +29,14 @@ const router = createBrowserRouter([
       },
       {
         path:'availableFoods/:id',
-        loader: ({params}) => fetch(`http://localhost:3000/availableFoods/${params.id}`).then(res => res.json()),
+        loader: ({params}) => fetch(`http://localhost:3000/availableFoods/${params.id}`),
         element: <FoodDetails></FoodDetails>
+      },
+      {
+        path:'foodRequest',
+        hydrateFallbackElement: <div>loadinnggg...</div> ,
+        loader: () => fetch('http://localhost:3000/requestedFoods'),
+        element:<MyFoodRequest></MyFoodRequest>
       },
       {
         path:'register',
