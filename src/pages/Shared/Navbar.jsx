@@ -1,5 +1,5 @@
 import React, { use, useEffect, useState } from "react";
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 import logo from "../../assets/mainLogo.png";
 import { AuthContext } from "../../Context/AuthContext/AuthContext";
 import { Tooltip } from "react-tooltip";
@@ -86,7 +86,7 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <img src={logo} alt="" className="w-15" />
+        <Link to='/'><img src={logo} alt="" className="w-15" /></Link>
         <a className=" ml-5 text-2xl text-emerald-600 font-extrabold">
           Food<span className="text-amber-600 font-extrabold">Nest</span>
         </a>
@@ -96,17 +96,24 @@ const Navbar = () => {
       </div>
       <div className="navbar-end gap-2">
         {user ? (
-          <button onClick={handleLogout} className="btn">
-            Logout
+          <button
+            onClick={handleLogout}
+            class="relative flex h-[50px] w-40 items-center justify-center text-xl  overflow-hidden bg-green-500 rounded-full text-white shadow-2xl transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-amber-300 before:duration-500 before:ease-out cursor-pointer hover:text-green-700 hover:before:h-56 hover:before:w-56"
+          >
+            <span class="relative z-10">Logout ➺</span>
           </button>
         ) : (
           <>
-            <NavLink to="/login" className="btn">
-              Login
-            </NavLink>
-            <NavLink to="/register" className="btn">
-              Register
-            </NavLink>
+            <Link to="/login">
+              <button class="relative flex h-[50px] w-40 items-center justify-center text-xl  overflow-hidden bg-green-500 rounded-full text-white shadow-2xl transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-amber-300 before:duration-500 before:ease-out cursor-pointer hover:text-green-700 hover:before:h-56 hover:before:w-56">
+                <span class="relative z-10">Login ➺</span>
+              </button>
+            </Link>
+            <Link to="/register">
+              <button class="relative flex h-[50px] w-40 items-center justify-center text-xl  overflow-hidden bg-green-500 rounded-full text-white shadow-2xl transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-amber-300 before:duration-500 before:ease-out cursor-pointer hover:text-green-700 hover:before:h-56 hover:before:w-56">
+                <span class="relative z-10">Register ➺</span>
+              </button>
+            </Link>
           </>
         )}
         {user && (

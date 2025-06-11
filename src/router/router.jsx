@@ -9,53 +9,71 @@ import FoodDetails from "../pages/FoodDetails/FoodDetails";
 import MyFoodRequest from "../pages/MyFoodRequest.jsx/MyFoodRequest";
 import ManageMyFoods from "../pages/ManageMyFoods/ManageMyFoods";
 import UpdatedFood from "../pages/UpdatedFood/UpdatedFood";
+import Loader from "../pages/Loader/Loader";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import PrivateRouter from "../Provider/PrivateRouter";
 
 const router = createBrowserRouter([
   {
     path: "/",
     Component: HomeLayout,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         index: true,
-        hydrateFallbackElement: <div>loadinnggg...</div> ,
-        loader:()=> fetch('http://localhost:3000/featureFoods'),
+        hydrateFallbackElement: <Loader></Loader>,
+        loader: () => fetch("http://localhost:3000/featureFoods"),
         Component: Home,
       },
       {
-        path:'addFood',
-        element:<AddFood></AddFood>
+        path: "addFood",
+        element: (
+          <PrivateRouter>
+            <AddFood></AddFood>
+          </PrivateRouter>
+        ),
       },
       {
-        path:'availableFoods',
-        element:<AvailableFoods></AvailableFoods>
+        path: "availableFoods",
+        element: <AvailableFoods></AvailableFoods>,
       },
       {
-        path:'availableFoods/:id',
-        hydrateFallbackElement: <div>loadinnggg...</div> ,
-        loader: ({params}) => fetch(`http://localhost:3000/availableFoods/${params.id}`),
-        element: <FoodDetails></FoodDetails>
+        path: "availableFoods/:id",
+        hydrateFallbackElement: <Loader></Loader>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/availableFoods/${params.id}`),
+        element: <FoodDetails></FoodDetails>,
       },
       {
-        path:'foodRequest',
-        element:<MyFoodRequest></MyFoodRequest>
+        path: "foodRequest",
+        element: (
+          <PrivateRouter>
+            <MyFoodRequest></MyFoodRequest>
+          </PrivateRouter>
+        ),
       },
       {
-        path:'manageMyFoods',
-        element:<ManageMyFoods></ManageMyFoods>
+        path: "manageMyFoods",
+        element: (
+          <PrivateRouter>
+            <ManageMyFoods></ManageMyFoods>
+          </PrivateRouter>
+        ),
       },
       {
-        path:'updatedFood/:id',
-        loader: ({params}) => fetch(`http://localhost:3000/allFoods/${params.id}`),
-        element:<UpdatedFood></UpdatedFood>
+        path: "updatedFood/:id",
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/allFoods/${params.id}`),
+        element: <UpdatedFood></UpdatedFood>,
       },
       {
-        path:'register',
-        Component:Register
+        path: "register",
+        Component: Register,
       },
       {
-        path:'login',
-        Component:Login
-      }
+        path: "login",
+        Component: Login,
+      },
     ],
   },
 ]);

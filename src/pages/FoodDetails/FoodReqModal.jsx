@@ -161,13 +161,13 @@ const FoodReqModal = ({ food, closeModal }) => {
           </div>
 
           <div className="modal-action justify-end gap-4">
-            <button type="submit" className="btn btn-success">
+            <button type="submit" className="btn bg-amber-300 rounded-full">
               Request
             </button>
             <button
               onClick={closeModal}
               type="button"
-              className="btn btn-outline"
+              className="btn btn-outline rounded-full"
             >
               Cancel
             </button>

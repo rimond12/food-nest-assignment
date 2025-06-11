@@ -38,16 +38,17 @@ const TestimonialSlider = () => {
   }, []);
 
   return (
-    <div className="flex flex-col mt-20  md:flex-row items-center gap-8 p-10 bg-[#005730] bg-[url('https://www.transparenttextures.com/patterns/skulls.png')]  shadow-md overflow-hidden">
-      {/* Left Image */}
+    <div className=" mt-20  p-10 bg-[#005730] bg-[url('https://www.transparenttextures.com/patterns/skulls.png')]  shadow-md overflow-hidden">
+     <div className="flex flex-col md:flex-row gap-5 justify-between items-center max-w-11/12 mx-auto">
+       {/* Left Image */}
       <img
-        src="https://i.ibb.co/BKHG2PjS/5d4f885b-d722-417e-9fcb-313419d7cf22-removebg-preview.png"
+        src="https://i.ibb.co/5gR0dCKh/1749632820656.png"
         alt="Grocery bag"
-        className="w-full md:w-1/2 rounded-xl object-cover"
+        className="w-full md:w-1/3 rounded-xl object-cover"
       />
 
       {/* Right Testimonial */}
-      <div className="w-full md:w-1/2 relative">
+      <div className="w-full md:w-2/3">
         <AnimatePresence mode="wait">
           <motion.div
             key={index}
@@ -88,6 +89,7 @@ const TestimonialSlider = () => {
           </motion.div>
         </AnimatePresence>
       </div>
+     </div>
     </div>
   );
 };

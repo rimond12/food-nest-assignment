@@ -36,21 +36,21 @@ const Slider = () => {
         </SwiperSlide>
         <SwiperSlide>
           <img
-            src="https://i.ibb.co/JWy8sCL7/full-shot-gamer-sitting-chair.jpg"
+            src="https://i.ibb.co/0RPXLVYK/merchant-giving-package-courier.jpg"
             alt="Slide 3"
             className="w-full "
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
-            src="https://i.ibb.co/7dK4NWBx/man-cook-holds-pan-with-vegetables-flying-air.jpg"
+            src="https://i.ibb.co/60Q9Y4C2/medium-shot-people-collecting-food.jpg"
             alt="Slide 4"
             className="w-full"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
-            src="https://i.ibb.co/bgJPBPDd/healthy-lifestyle-running-outdoors.jpg"
+            src="https://i.ibb.co/Kp4PvmtW/close-up-delivery-man-with-food-crate.jpg"
             alt="Slide 5"
             className="w-full"
           />
