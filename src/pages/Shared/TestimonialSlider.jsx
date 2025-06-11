@@ -38,10 +38,10 @@ const TestimonialSlider = () => {
   }, []);
 
   return (
-    <div className="flex flex-col md:flex-row items-center gap-8 p-10 bg-[#fdf2dc] rounded-2xl shadow-md overflow-hidden">
+    <div className="flex flex-col mt-20  md:flex-row items-center gap-8 p-10 bg-[#005730] bg-[url('https://www.transparenttextures.com/patterns/skulls.png')]  shadow-md overflow-hidden">
       {/* Left Image */}
       <img
-        src="https://i.ibb.co/N2W44Z2H/portrait-astonished-man-holding-paper-bag.png"
+        src="https://i.ibb.co/BKHG2PjS/5d4f885b-d722-417e-9fcb-313419d7cf22-removebg-preview.png"
         alt="Grocery bag"
         className="w-full md:w-1/2 rounded-xl object-cover"
       />

@@ -3,9 +3,9 @@ import logo from '../../assets/mainLogo.png'
 
 const Footer = () => {
   return (
-   <div className="relative">
+   <div className="">
     
-     <footer className="footer footer-horizontal footer-center bg-emerald-900 mt-20 text-primary-content rounded-tr-[40%] rounded-tl-[70%]  p-10">
+     <footer className="footer footer-horizontal pt-50 footer-center bg-emerald-900 mt-20 text-primary-content rounded-tr-[40%] rounded-tl-[70%]  p-10">
       <aside>
        <img src={logo} alt="" className="w-[150px]" />
         <p className="font-bold">

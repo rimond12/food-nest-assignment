@@ -41,7 +41,7 @@ const OurImpactSection = () => {
   return (
     <div>
       <section className="py-28 bg-white">
-        <div className="max-w-11/12 mx-auto px-6 text-center">
+        <div className="max-w-7xl mx-auto px-6 text-center">
           <motion.h2
             initial={{ opacity: 0, y: -40 }}
             whileInView={{ opacity: 1, y: 0 }}
