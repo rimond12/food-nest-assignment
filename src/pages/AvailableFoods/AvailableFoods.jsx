@@ -30,10 +30,10 @@ const AvailableFoods = () => {
   return (
     <div>
       <div
-        className="relative bg-[url('https://www.transparenttextures.com/patterns/argyle.png')] 
-       w-full h-[400px]  bg-gradient-to-br from-green-950 via-green-800 to-green-600 "
+        className="relative 
+       w-full h-[400px] bg-[linear-gradient(to_right,rgba(0,63,48,0.9),rgba(0,63,48,0.7)),url('https://www.transparenttextures.com/patterns/argyle.png')] "
       >
-        <div class="absolute inset-0 bg-gradient-to-br from-emerald-950 via-emerald-900 to-emerald-800 opacity-80"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-emerald-950 via-emerald-900 to-emerald-800 opacity-80"></div>
         <div className="flex flex-col max-w-7xl mx-auto pl-5 lg:pl-0  gap-3 pt-35">
           <h2 className="relative text-5xl z-10 font-bold text-white">
             Available Foods

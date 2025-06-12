@@ -6,6 +6,7 @@ import { RouterProvider } from "react-router";
 import AuthProvider from "./Provider/AuthProvider.jsx";
 import { Toaster } from "react-hot-toast";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import AnimatedCursor from "react-animated-cursor"
 
 const queryClient = new QueryClient();
 
@@ -13,6 +14,21 @@ createRoot(document.getElementById("root")).render(
   <StrictMode>
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
+        <AnimatedCursor
+          innerSize={10}
+          outerSize={35}
+          innerScale={1}
+          outerScale={2}
+          outerAlpha={0}
+          hasBlendMode={true}
+          showSystemCursor={true}
+          innerStyle={{
+            backgroundColor: "var(--cursor-color)",
+          }}
+          outerStyle={{
+            border: "3px solid var(--cursor-color)",
+          }}
+        />
         <RouterProvider router={router} />
         <Toaster
           position="top-right"

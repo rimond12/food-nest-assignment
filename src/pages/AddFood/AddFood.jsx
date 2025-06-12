@@ -3,6 +3,7 @@ import { AuthContext } from "./../../Context/AuthContext/AuthContext";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { Link, useNavigate } from "react-router";
+import { toast } from "react-hot-toast";
 
 const AddFood = () => {
   const { user } = use(AuthContext);
@@ -18,7 +19,11 @@ const AddFood = () => {
     // send food data to the db
 
     axios
-      .post("http://localhost:3000/foods", foodData)
+      .post("http://localhost:3000/foods", foodData, {
+        headers: {
+          authorization: `Bearer ${user.accessToken}`,
+        },
+      })
       .then((res) => {
         console.log(res.data);
         if (res.data.insertedId) {
@@ -32,22 +37,30 @@ const AddFood = () => {
         }
       })
       .catch((error) => {
-        console.log(error);
+        toast.error(error);
       });
   };
   return (
     <div>
-      <div className="relative bg-[url('https://www.transparenttextures.com/patterns/argyle.png')] 
-       w-full h-[400px]  bg-gradient-to-br from-green-950 via-green-800 to-green-600 ">
-          <div class="absolute inset-0 bg-gradient-to-br from-emerald-950 via-emerald-900 to-emerald-800 opacity-80"></div>
-       <div className="flex flex-col max-w-7xl mx-auto pl-5 lg:pl-0  gap-3 pt-35">
-         <h2 className="relative text-5xl z-10 font-bold text-white">Add A Food</h2>
-         <div className="flex gap-5">
-          <Link to='/' className="relative text-xl z-10 font-bold text-white">Home</Link>
-          <p className="relative text-xl z-10  text-white">➢</p>
-          <p className="relative text-xl z-10 font-bold text-white">Add A Food</p>
-         </div>
-       </div>
+      <div
+        className="relative 
+       w-full h-[400px] bg-[linear-gradient(to_right,rgba(0,63,48,0.9),rgba(0,63,48,0.7)),url('https://www.transparenttextures.com/patterns/argyle.png')] "
+      >
+        <div class="absolute inset-0 bg-gradient-to-br from-emerald-950 via-emerald-900 to-emerald-800 opacity-80"></div>
+        <div className="flex flex-col max-w-7xl mx-auto pl-5 lg:pl-0  gap-3 pt-35">
+          <h2 className="relative text-5xl z-10 font-bold text-white">
+            Add A Food
+          </h2>
+          <div className="flex gap-5">
+            <Link to="/" className="relative text-xl z-10 font-bold text-white">
+              Home
+            </Link>
+            <p className="relative text-xl z-10  text-white">➢</p>
+            <p className="relative text-xl z-10 font-bold text-white">
+              Add A Food
+            </p>
+          </div>
+        </div>
       </div>
       <div className="max-w-7xl mx-auto mt-20 p-8 bg-white rounded-xl shadow-lg border border-amber-300">
         <h2 className="text-4xl font-extrabold mb-8 text-emerald-700 text-center">

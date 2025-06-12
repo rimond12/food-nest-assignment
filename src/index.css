@@ -1,17 +1,28 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
 @import "tailwindcss";
-@plugin "daisyui";
+@plugin "daisyui"{
+  themes: light --default;
+}
+
 
 * {
   font-family: "Montserrat", sans-serif;
 }
-/* body{
-    background-color: #fffaf0;
-background-image: url("https://www.transparenttextures.com/patterns/triangles.png");
-} */
+
 
 a.active {
   border-bottom: 2px solid rgb(42, 187, 42);
   color: rgb(42, 187, 42);
+}
+
+
+ :root {
+  --cursor-color: #ffbb00; /* Tailwind purple-600 */
+}
+
+.animated-cursor,
+.animated-cursor-inner,
+.animated-cursor-outer {
+  z-index: 99999 !important;
 }

@@ -47,7 +47,7 @@ const FeaturedFoods = ({ featuredFoods }) => {
       <div className="flex justify-center my-10">
         <NavLink to="/availableFoods">
           <button className="relative flex h-[50px] p-10  items-center justify-center text-xl  overflow-hidden bg-green-500 rounded-full text-white shadow-2xl transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-amber-300 before:duration-300 before:ease-out cursor-pointer hover:text-green-700 hover:before:h-56 hover:before:w-full">
-            <span class="relative z-10">Show All Foods ➺</span>
+            <span className="relative z-10">Show All Foods ➺</span>
           </button>
         </NavLink>
       </div>

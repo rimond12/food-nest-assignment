@@ -98,20 +98,20 @@ const Navbar = () => {
         {user ? (
           <button
             onClick={handleLogout}
-            class="relative flex h-[50px] w-40 items-center justify-center text-xl  overflow-hidden bg-green-500 rounded-full text-white shadow-2xl transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-amber-300 before:duration-500 before:ease-out cursor-pointer hover:text-green-700 hover:before:h-56 hover:before:w-56"
+            className="relative flex h-[50px] w-40 items-center justify-center text-xl  overflow-hidden bg-green-500 rounded-full text-white shadow-2xl transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-amber-300 before:duration-500 before:ease-out cursor-pointer hover:text-green-700 hover:before:h-56 hover:before:w-56"
           >
-            <span class="relative z-10">Logout ➺</span>
+            <span className="relative z-10">Logout ➺</span>
           </button>
         ) : (
           <>
             <Link to="/login">
-              <button class="relative flex h-[50px] w-40 items-center justify-center text-xl  overflow-hidden bg-green-500 rounded-full text-white shadow-2xl transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-amber-300 before:duration-500 before:ease-out cursor-pointer hover:text-green-700 hover:before:h-56 hover:before:w-56">
-                <span class="relative z-10">Login ➺</span>
+              <button className="relative flex h-[50px] w-40 items-center justify-center text-xl  overflow-hidden bg-green-500 rounded-full text-white shadow-2xl transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-amber-300 before:duration-500 before:ease-out cursor-pointer hover:text-green-700 hover:before:h-56 hover:before:w-56">
+                <span className="relative z-10">Login ➺</span>
               </button>
             </Link>
             <Link to="/register">
-              <button class="relative flex h-[50px] w-40 items-center justify-center text-xl  overflow-hidden bg-green-500 rounded-full text-white shadow-2xl transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-amber-300 before:duration-500 before:ease-out cursor-pointer hover:text-green-700 hover:before:h-56 hover:before:w-56">
-                <span class="relative z-10">Register ➺</span>
+              <button className="relative flex h-[50px] w-40 items-center justify-center text-xl  overflow-hidden bg-green-500 rounded-full text-white shadow-2xl transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-amber-300 before:duration-500 before:ease-out cursor-pointer hover:text-green-700 hover:before:h-56 hover:before:w-56">
+                <span className="relative z-10">Register ➺</span>
               </button>
             </Link>
           </>

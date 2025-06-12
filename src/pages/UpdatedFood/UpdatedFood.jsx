@@ -1,6 +1,6 @@
 import React, { use } from "react";
 import { AuthContext } from "../../Context/AuthContext/AuthContext";
-import { useLoaderData } from "react-router";
+import { useLoaderData, useLocation, useNavigate } from "react-router";
 import Swal from "sweetalert2";
 import axios from "axios";
 
@@ -8,7 +8,8 @@ const UpdatedFood = () => {
   const { user } = use(AuthContext);
   const { date_time, food_name, food_photo, location, notes, quantity, _id } =
     useLoaderData();
-
+    const nav_location = useLocation();
+  const navigate = useNavigate();
   const handleUpdateGroup = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -25,12 +26,12 @@ const UpdatedFood = () => {
         if (res.data.modifiedCount) {
           Swal.fire({
             icon: "success",
-            title: "Your work has been saved",
+            title: "Your Food has been saved",
             showConfirmButton: false,
             timer: 1500,
           });
           form.reset();
-          // navigate(`${nav_location.state ? nav_location.state : "/"}`);
+          navigate(`${nav_location.state ? nav_location.state : "/"}`);
         }
       });
   };

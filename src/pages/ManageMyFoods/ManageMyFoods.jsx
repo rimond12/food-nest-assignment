@@ -12,7 +12,11 @@ const ManageMyFoods = () => {
 
   useEffect(() => {
     if (user?.email) {
-      fetch(`http://localhost:3000/allFoodsByEmail/${user.email}`)
+      fetch(`http://localhost:3000/allFoodsByEmail/${user.email}`, {
+        headers: {
+          authorization: `Bearer ${user.accessToken}`,
+        },
+      })
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
@@ -26,8 +30,8 @@ const ManageMyFoods = () => {
     }
   }, [user?.email]);
 
-   if (loading) {
-    return <Loader></Loader>
+  if (loading) {
+    return <Loader></Loader>;
   }
 
   const handleDelete = (id) => {
@@ -48,7 +52,7 @@ const ManageMyFoods = () => {
 
             Swal.fire({
               title: "Deleted!",
-              text: "Your Group has been deleted.",
+              text: "Your Food has been deleted.",
               icon: "success",
             });
           }
@@ -60,8 +64,8 @@ const ManageMyFoods = () => {
   return (
     <div>
       <div
-        className="relative bg-[url('https://www.transparenttextures.com/patterns/argyle.png')] 
-       w-full h-[400px]  bg-gradient-to-br from-green-950 via-green-800 to-green-600 "
+        className="relative 
+       w-full h-[400px] bg-[linear-gradient(to_right,rgba(0,63,48,0.9),rgba(0,63,48,0.7)),url('https://www.transparenttextures.com/patterns/argyle.png')]"
       >
         <div className="absolute inset-0 bg-gradient-to-br from-emerald-950 via-emerald-900 to-emerald-800 opacity-80"></div>
         <div className="flex flex-col max-w-7xl mx-auto pl-5 lg:pl-0  gap-3 pt-35">
@@ -116,7 +120,7 @@ const ManageMyFoods = () => {
                     <td className="px-4 py-3 text-gray-800 font-semibold">
                       {food.food_name}
                     </td>
-                    <td className="px-4 py-3">12</td>
+                    <td className="px-4 py-3">{food.quantity}</td>
                     <td className="px-4 py-3 capitalize">{food.status}</td>
                     <td className="px-4 py-3 flex gap-2">
                       <Link to={`/UpdatedFood/${food._id}`}>

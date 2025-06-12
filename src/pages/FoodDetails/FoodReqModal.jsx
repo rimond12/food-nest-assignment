@@ -2,10 +2,13 @@ import React, { useContext } from "react";
 import { AuthContext } from "../../Context/AuthContext/AuthContext";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { useLocation, useNavigate } from "react-router";
 
 const FoodReqModal = ({ food, closeModal }) => {
   const { user } = useContext(AuthContext);
-  const currentDate = new Date().toISOString().slice(0, 16);
+  // const currentDate = new Date().toISOString().slice(0, 16);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const handleRequest = (e) => {
     e.preventDefault();
@@ -40,10 +43,12 @@ const FoodReqModal = ({ food, closeModal }) => {
       })
       .then(() => {
         Swal.fire({
-          title: "Request Sent Successfully!",
+          title: "Food Request Sent Successfully!",
           icon: "success",
         });
+
         closeModal();
+        navigate(`${location.state ? location.state : "/"}`);
       })
       .catch((error) => {
         console.error("Request failed:", error);
