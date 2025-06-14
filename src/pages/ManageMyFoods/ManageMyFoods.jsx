@@ -12,19 +12,17 @@ const ManageMyFoods = () => {
 
   useEffect(() => {
     if (user?.email) {
-      fetch(`http://localhost:3000/allFoodsByEmail/${user.email}`, {
+      fetch(`https://food-nest-server.vercel.app/allFoodsByEmail/${user.email}`, {
         headers: {
           authorization: `Bearer ${user.accessToken}`,
         },
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
           setMyFoods(data);
           setLoading(false);
         })
         .catch((error) => {
-          console.log(error);
           setLoading(false);
         });
     }
@@ -45,7 +43,7 @@ const ManageMyFoods = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`http://localhost:3000/allFoods/${id}`).then((res) => {
+        axios.delete(`https://food-nest-server.vercel.app/allFoods/${id}`).then((res) => {
           if (res.data.deletedCount) {
             const remainingFoods = myFoods.filter((food) => food._id !== id);
             setMyFoods(remainingFoods);

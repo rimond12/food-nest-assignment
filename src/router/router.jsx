@@ -22,7 +22,7 @@ const router = createBrowserRouter([
       {
         index: true,
         hydrateFallbackElement: <Loader></Loader>,
-        loader: () => fetch("http://localhost:3000/featureFoods"),
+        loader: () => fetch("https://food-nest-server.vercel.app/featureFoods"),
         Component: Home,
       },
       {
@@ -41,7 +41,7 @@ const router = createBrowserRouter([
         path: "availableFoods/:id",
         hydrateFallbackElement: <Loader></Loader>,
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/availableFoods/${params.id}`),
+          fetch(`https://food-nest-server.vercel.app/availableFoods/${params.id}`),
         element: <FoodDetails></FoodDetails>,
       },
       {
@@ -63,7 +63,7 @@ const router = createBrowserRouter([
       {
         path: "updatedFood/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/allFoods/${params.id}`),
+          fetch(`https://food-nest-server.vercel.app/allFoods/${params.id}`),
         element: <UpdatedFood></UpdatedFood>,
       },
       {

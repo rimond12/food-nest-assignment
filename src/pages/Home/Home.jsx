@@ -8,7 +8,6 @@ import TestimonialSlider from "../Shared/TestimonialSlider";
 
 const Home = () => {
   const featuredFoods = useLoaderData();
-  console.log(featuredFoods);
 
   return (
     <div>

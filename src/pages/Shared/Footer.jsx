@@ -10,8 +10,13 @@ const Footer = () => {
           <p className=" ml-5 text-2xl text-emerald-600 font-extrabold">
             Food<span className="text-amber-600 font-extrabold">Nest</span>
           </p>
-          <p>Providing reliable tech since 1992</p>
-          <p>Copyright © {new Date().getFullYear()} - All right reserved by -Rimon Dey</p>
+          <p className="font-semibold">
+            Serving kindness and connection — since 2000
+          </p>
+          <p className="font-semibold">
+            Copyright © {new Date().getFullYear()} - All right reserved by
+            -Rimon Dey
+          </p>
         </aside>
         <nav>
           <div className="grid grid-flow-col gap-4">

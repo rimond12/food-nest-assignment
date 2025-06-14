@@ -7,46 +7,51 @@ const MyFoodRequest = () => {
   const { user } = use(AuthContext);
   const [reqFoods, setReqFoods] = useState([]);
   const [loading, setLoading] = useState(true);
-  console.log('token in the context', user.accessToken);
-  
+  // console.log('token in the context', user.accessToken);
+
   useEffect(() => {
     if (user?.email) {
-      fetch(`http://localhost:3000/requestedFoods/${user.email}`,{
+      fetch(`https://food-nest-server.vercel.app/requestedFoods/${user.email}`, {
         headers: {
-          authorization: `Bearer ${user.accessToken}`
-        }
+          authorization: `Bearer ${user.accessToken}`,
+        },
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
-
           setReqFoods(data);
           setLoading(false);
         })
         .catch((error) => {
-          console.log(error);
           setLoading(false);
         });
     }
   }, [user?.email]);
 
   if (loading) {
-    return <Loader></Loader>
+    return <Loader></Loader>;
   }
 
   return (
     <div>
-      <div className="relative 
-       w-full h-[400px] bg-[linear-gradient(to_right,rgba(0,63,48,0.9),rgba(0,63,48,0.7)),url('https://www.transparenttextures.com/patterns/argyle.png')]">
-          <div className="absolute inset-0 bg-gradient-to-br from-emerald-950 via-emerald-900 to-emerald-800 opacity-80"></div>
-       <div className="flex flex-col max-w-7xl mx-auto pl-5 lg:pl-0  gap-3 pt-35">
-         <h2 className="relative text-5xl z-10 font-bold text-white">My Food Requests</h2>
-         <div className="flex gap-5">
-          <Link to='/' className="relative text-xl z-10 font-bold text-white">Home</Link>
-          <p className="relative text-xl z-10  text-white">➢</p>
-          <p className="relative text-xl z-10 font-bold text-white">My Food Requests</p>
-         </div>
-       </div>
+      <div
+        className="relative 
+       w-full h-[400px] bg-[linear-gradient(to_right,rgba(0,63,48,0.9),rgba(0,63,48,0.7)),url('https://www.transparenttextures.com/patterns/argyle.png')]"
+      >
+        <div className="absolute inset-0 bg-gradient-to-br from-emerald-950 via-emerald-900 to-emerald-800 opacity-80"></div>
+        <div className="flex flex-col max-w-7xl mx-auto pl-5 lg:pl-0  gap-3 pt-35">
+          <h2 className="relative text-5xl z-10 font-bold text-white">
+            My Food Requests
+          </h2>
+          <div className="flex gap-5">
+            <Link to="/" className="relative text-xl z-10 font-bold text-white">
+              Home
+            </Link>
+            <p className="relative text-xl z-10  text-white">➢</p>
+            <p className="relative text-xl z-10 font-bold text-white">
+              My Food Requests
+            </p>
+          </div>
+        </div>
       </div>
       <div className="max-w-7xl mx-auto px-4 py-8 mt-20 min-h-screen">
         <h2 className="text-2xl font-bold mb-6 text-center">
@@ -99,7 +104,9 @@ const MyFoodRequest = () => {
                       {new Date(item.request_date).toLocaleDateString()}
                     </td>
                     <td className="p-4">{item.quantity}</td>
-                    <td className="p-4 capitalize text-red-600 font-bold">{item.status}</td>
+                    <td className="p-4 capitalize text-red-600 font-bold">
+                      {item.status}
+                    </td>
                   </tr>
                 ))}
               </tbody>

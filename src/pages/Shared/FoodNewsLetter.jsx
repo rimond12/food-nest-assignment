@@ -3,7 +3,7 @@ import { FaPaperPlane } from "react-icons/fa";
 
 const FoodNewsLetter = () => {
   return (
-     <div className="md:mt-10 -mt-10 relative top-60 z-10 px-4 flex justify-center ">
+    <div className="md:mt-10 -mt-10 relative top-60 z-10 px-4 flex justify-center ">
       <div className="bg-[#f5f9f1] text-green-900 rounded-xl shadow-lg flex flex-col md:flex-row items-center max-w-6xl w-full p-6 md:p-12 space-y-6 md:space-y-0 md:space-x-10 border-t-5 border-green-600">
         {/* Image Section */}
         <div className="relative hidden md:block">

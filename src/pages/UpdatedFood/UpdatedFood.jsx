@@ -8,7 +8,7 @@ const UpdatedFood = () => {
   const { user } = use(AuthContext);
   const { date_time, food_name, food_photo, location, notes, quantity, _id } =
     useLoaderData();
-    const nav_location = useLocation();
+  const nav_location = useLocation();
   const navigate = useNavigate();
   const handleUpdateGroup = (e) => {
     e.preventDefault();
@@ -17,7 +17,7 @@ const UpdatedFood = () => {
     const updateFood = Object.fromEntries(formData.entries());
 
     axios
-      .put(`http://localhost:3000/allFoods/${_id}`, updateFood, {
+      .put(`https://food-nest-server.vercel.app/allFoods/${_id}`, updateFood, {
         headers: {
           "Content-Type": "application/json",
         },

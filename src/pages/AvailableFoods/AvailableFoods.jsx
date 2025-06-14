@@ -11,7 +11,7 @@ const AvailableFoods = () => {
   const { data = [], isLoading } = useQuery({
     queryKey: ["availableFoods"],
     queryFn: () =>
-      fetch("http://localhost:3000/availableFoods").then((res) => res.json()),
+      fetch("https://food-nest-server.vercel.app/availableFoods").then((res) => res.json()),
     select: (foods) => foods.filter((f) => f.status === "available"),
   });
 
@@ -127,7 +127,7 @@ const AvailableFoods = () => {
                   <div className="card-actions py-5">
                     <Link to={`/availableFoods/${f._id}`}>
                       <button className="relative flex h-[50px] p-5  items-center justify-center text-xl  overflow-hidden bg-amber-300 rounded-full text-green-700 shadow-2xl transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-green-600 before:duration-300 before:ease-out cursor-pointer hover:text-white hover:before:h-56 hover:before:w-full">
-                        <span class="relative z-10">Details ➺</span>
+                        <span className="relative z-10">Details ➺</span>
                       </button>
                     </Link>
                   </div>

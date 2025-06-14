@@ -6,7 +6,6 @@ import FoodReqModal from "./FoodReqModal";
 
 const FoodDetails = () => {
   const food = useLoaderData();
-  console.log(food);
 
   const [showModal, setShowModal] = useState(false);
 
@@ -72,7 +71,7 @@ const FoodDetails = () => {
                 d="M12 4v16m8-8H4"
               />
             </svg>
-            <span class="relative z-10"> Request This Food</span>
+            <span className="relative z-10"> Request This Food</span>
           </button>
         </div>
 

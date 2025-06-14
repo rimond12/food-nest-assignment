@@ -11,9 +11,9 @@ const FeaturedFoodCard = ({ food, index }) => {
       transition={{
         duration: 0.8,
         ease: "easeInOut",
-        delay: index * 0.1, // stagger effect if multiple cards
+        delay: index * 0.1,
       }}
-      viewport={{ once: true, amount: 0.3 }} // triggers when 30% of the card is in view
+      viewport={{ once: true, amount: 0.3 }}
       className="max-w-2xl mx-auto bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700"
     >
       <a href="#">
@@ -33,13 +33,12 @@ const FeaturedFoodCard = ({ food, index }) => {
           {notes}
         </p>
         <div className="flex ">
-        <h2 className="bg-amber-500 p-2 rounded-full text-white font-semibold text-center my-4">
-          Available Quantity:{" "}
-          <span className="text-emerald-400 font-extrabold ">{quantity}</span>
-        </h2>
+          <h2 className="bg-amber-500 p-2 rounded-full text-white font-semibold text-center my-4">
+            Available Quantity:{" "}
+            <span className="text-emerald-400 font-extrabold ">{quantity}</span>
+          </h2>
+        </div>
       </div>
-      </div>
-      
     </motion.div>
   );
 };

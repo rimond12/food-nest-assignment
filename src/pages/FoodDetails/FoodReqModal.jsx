@@ -6,7 +6,6 @@ import { useLocation, useNavigate } from "react-router";
 
 const FoodReqModal = ({ food, closeModal }) => {
   const { user } = useContext(AuthContext);
-  // const currentDate = new Date().toISOString().slice(0, 16);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -30,11 +29,11 @@ const FoodReqModal = ({ food, closeModal }) => {
     };
 
     axios
-      .post("http://localhost:3000/requestedFoods", requestedFood)
+      .post("https://food-nest-server.vercel.app/requestedFoods", requestedFood)
       .then((res) => {
         if (res.data.insertedId) {
           return axios.patch(
-            `http://localhost:3000/availableFoods/${food._id}`,
+            `https://food-nest-server.vercel.app/availableFoods/${food._id}`,
             {
               status: "requested",
             }
@@ -51,7 +50,6 @@ const FoodReqModal = ({ food, closeModal }) => {
         navigate(`${location.state ? location.state : "/"}`);
       })
       .catch((error) => {
-        console.error("Request failed:", error);
         Swal.fire({
           title: "Failed to request food!",
           icon: "error",

@@ -5,8 +5,6 @@ import { motion } from "framer-motion";
 import { Typewriter } from "react-simple-typewriter";
 
 const FeaturedFoods = ({ featuredFoods }) => {
-  console.log(featuredFoods);
-
   return (
     <div className="max-w-11/12 mx-auto my-30 ">
       <motion.h2
