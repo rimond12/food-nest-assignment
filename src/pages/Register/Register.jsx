@@ -125,7 +125,7 @@ const Register = () => {
                 className="w-full px-3 py-2 border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600"
               />
             </div>
-            {/* {error && <p className="text-red-500 text-xs">{error}</p>} */}
+            {error && <p className="text-red-500 text-xs">{error}</p>}
           </div>
           <button
             type="submit"

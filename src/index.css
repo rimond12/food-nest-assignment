@@ -18,7 +18,7 @@ a.active {
 
 
  :root {
-  --cursor-color: #ffbb00; /* Tailwind purple-600 */
+  --cursor-color: #ffbb00; 
 }
 
 .animated-cursor,

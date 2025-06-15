@@ -1,6 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import React, { useState } from "react";
 import { Link } from "react-router";
+import { FiGrid } from "react-icons/fi";
+import { TfiLayoutGrid3Alt } from "react-icons/tfi";
 import Loader from "../Loader/Loader";
 
 const AvailableFoods = () => {
@@ -11,7 +13,9 @@ const AvailableFoods = () => {
   const { data = [], isLoading } = useQuery({
     queryKey: ["availableFoods"],
     queryFn: () =>
-      fetch("https://food-nest-server.vercel.app/availableFoods").then((res) => res.json()),
+      fetch("https://food-nest-server.vercel.app/availableFoods").then((res) =>
+        res.json()
+      ),
     select: (foods) => foods.filter((f) => f.status === "available"),
   });
 
@@ -53,8 +57,6 @@ const AvailableFoods = () => {
         <h2 className="text-4xl font-bold text-center my-10">
           All Available Foods
         </h2>
-
-        {/* Modern Filter Controls */}
         <div className=" md:mx-0 flex flex-col md:flex-row md:items-center gap-4 mb-8 justify-between  p-4 rounded-full bg-gradient-to-b from-[#f7f5f2] to-[#ece9e6] text-gray-600 ">
           <input
             type="text"
@@ -78,12 +80,28 @@ const AvailableFoods = () => {
             </select>
           </div>
 
-          <button
-            className="btn btn-outline rounded-full bg-gray-50"
-            onClick={() => setTwoColumn(!twoColumn)}
-          >
-            {twoColumn ? "🧱 3 Column View" : "📦 2 Column View"}
-          </button>
+          <div className="flex gap-2 items-center justify-center">
+            <button
+              onClick={() => setTwoColumn(true)}
+              className={`btn rounded-md px-4 py-2 ${
+                twoColumn
+                  ? "bg-white border border-red-500 text-red-500"
+                  : "bg-gray-200 text-black"
+              }`}
+            >
+               <FiGrid />  
+            </button>
+            <button
+              onClick={() => setTwoColumn(false)}
+              className={`btn rounded-md px-4 py-2 ${
+                !twoColumn
+                  ? "bg-white border border-black text-black"
+                  : "bg-gray-200 text-black"
+              }`}
+            >
+               <TfiLayoutGrid3Alt />
+            </button>
+          </div>
         </div>
 
         {/* Card Grid */}
