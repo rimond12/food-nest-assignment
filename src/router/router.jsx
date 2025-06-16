@@ -41,8 +41,14 @@ const router = createBrowserRouter([
         path: "availableFoods/:id",
         hydrateFallbackElement: <Loader></Loader>,
         loader: ({ params }) =>
-          fetch(`https://food-nest-server.vercel.app/availableFoods/${params.id}`),
-        element: <FoodDetails></FoodDetails>,
+          fetch(
+            `https://food-nest-server.vercel.app/availableFoods/${params.id}`
+          ),
+        element: (
+          <PrivateRouter>
+            <FoodDetails></FoodDetails>
+          </PrivateRouter>
+        ),
       },
       {
         path: "foodRequest",

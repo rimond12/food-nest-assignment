@@ -3,7 +3,6 @@ import { useLoaderData } from "react-router";
 import { useState } from "react";
 import FoodReqModal from "./FoodReqModal";
 
-
 const FoodDetails = () => {
   const food = useLoaderData();
 
@@ -45,12 +44,44 @@ const FoodDetails = () => {
               {food.location}
             </p>
             <p>
+              <span className="font-semibold text-gray-900">Quantity:</span>{" "}
+              {food.quantity}
+            </p>
+            <p>
+              <span className="font-semibold text-gray-900">Date & Time:</span>{" "}
+              {new Date(food.date_time).toLocaleString()}
+            </p>
+            <p>
               <span className="font-semibold text-gray-900">Status:</span>{" "}
-              <span className="inline-block px-3 py-1 rounded-full bg-green-100 text-green-600 text-sm font-medium shadow">
-                Available
+              <span
+                className={`inline-block px-3 py-1 rounded-full text-sm font-medium shadow ${
+                  food.status === "available"
+                    ? "bg-green-100 text-green-600"
+                    : "bg-red-100 text-red-600"
+                }`}
+              >
+                {food.status.charAt(0).toUpperCase() + food.status.slice(1)}
               </span>
             </p>
           </div>
+
+          {food.notes && (
+            <div className="mt-4 text-gray-600">
+              <h3 className="font-semibold text-gray-900 mb-2">Notes:</h3>
+              <p>{food.notes}</p>
+            </div>
+          )}
+
+          {food.donor_photo && (
+            <div className="mt-6 flex items-center space-x-4">
+              <img
+                src={food.donor_photo}
+                alt={food.donor_name}
+                className="w-14 h-14 rounded-full object-cover"
+              />
+              <span className="text-gray-700 font-medium">Donor Photo</span>
+            </div>
+          )}
         </div>
 
         <div className="mt-10">
@@ -71,9 +102,10 @@ const FoodDetails = () => {
                 d="M12 4v16m8-8H4"
               />
             </svg>
-            <span className="relative z-10"> Request This Food</span>
+            <span className="relative z-10">Request This Food</span>
           </button>
         </div>
+
         {showModal && (
           <FoodReqModal food={food} closeModal={() => setShowModal(false)} />
         )}
