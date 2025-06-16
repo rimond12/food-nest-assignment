@@ -6,6 +6,10 @@ import axios from "axios";
 import Loader from "../Loader/Loader";
 
 const ManageMyFoods = () => {
+  useEffect(()=> {
+          document.title = "My Foods | FoodNest";
+      }, []);
+
   const { user } = use(AuthContext);
   const [myFoods, setMyFoods] = useState([]);
   const [loading, setLoading] = useState(true);

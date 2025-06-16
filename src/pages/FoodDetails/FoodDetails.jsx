@@ -1,18 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useLoaderData } from "react-router";
 import { useState } from "react";
 import FoodReqModal from "./FoodReqModal";
-// import RequestModal from "./RequestModal";
+
 
 const FoodDetails = () => {
   const food = useLoaderData();
 
   const [showModal, setShowModal] = useState(false);
+  useEffect(() => {
+    document.title = "Food Details | FoodNest";
+  }, []);
 
   return (
     <div className="min-h-screen mt-20">
       <div className="max-w-4xl mx-auto px-6 py-10 bg-gradient-to-br from-white via-gray-50 to-gray-100 rounded-3xl shadow-2xl border border-gray-200 mt-12">
-        {/* Image with Overlay */}
         <div className="relative overflow-hidden rounded-2xl shadow-lg group">
           <img
             src={food.food_photo}
@@ -22,7 +24,6 @@ const FoodDetails = () => {
           <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition duration-500 rounded-2xl" />
         </div>
 
-        {/* Content */}
         <div className="mt-8 space-y-5 text-gray-800">
           <h2 className="text-4xl font-extrabold tracking-tight">
             {food.food_name}
@@ -52,7 +53,6 @@ const FoodDetails = () => {
           </div>
         </div>
 
-        {/* Request Button */}
         <div className="mt-10">
           <button
             onClick={() => setShowModal(true)}
@@ -74,8 +74,6 @@ const FoodDetails = () => {
             <span className="relative z-10"> Request This Food</span>
           </button>
         </div>
-
-        {/* Modal */}
         {showModal && (
           <FoodReqModal food={food} closeModal={() => setShowModal(false)} />
         )}

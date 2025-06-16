@@ -33,7 +33,7 @@ const FeaturedFoodCard = ({ food, index }) => {
           {notes}
         </p>
         <div className="flex ">
-          <h2 className="bg-amber-500 p-2 rounded-full text-white font-semibold text-center my-4">
+          <h2 className=" text-orange-400 font-semibold text-center my-4">
             Available Quantity:{" "}
             <span className="text-emerald-400 font-extrabold ">{quantity}</span>
           </h2>

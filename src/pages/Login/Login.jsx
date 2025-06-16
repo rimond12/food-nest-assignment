@@ -1,4 +1,4 @@
-import React, { use, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../../Context/AuthContext/AuthContext";
 import toast from "react-hot-toast";
@@ -8,6 +8,9 @@ const Login = () => {
   const [error, setError] = useState("");
   const location = useLocation();
   const navigate = useNavigate();
+  useEffect(() => {
+    document.title = "Login | FoodNest";
+  }, []);
 
   const handleLogin = (e) => {
     e.preventDefault();

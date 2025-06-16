@@ -4,18 +4,24 @@ import { AuthContext } from "../../Context/AuthContext/AuthContext";
 import Loader from "../Loader/Loader";
 
 const MyFoodRequest = () => {
+  useEffect(() => {
+    document.title = "Requseted Food | FoodNest";
+  }, []);
+
   const { user } = use(AuthContext);
   const [reqFoods, setReqFoods] = useState([]);
   const [loading, setLoading] = useState(true);
-  // console.log('token in the context', user.accessToken);
 
   useEffect(() => {
     if (user?.email) {
-      fetch(`https://food-nest-server.vercel.app/requestedFoods/${user.email}`, {
-        headers: {
-          authorization: `Bearer ${user.accessToken}`,
-        },
-      })
+      fetch(
+        `https://food-nest-server.vercel.app/requestedFoods/${user.email}`,
+        {
+          headers: {
+            authorization: `Bearer ${user.accessToken}`,
+          },
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           setReqFoods(data);

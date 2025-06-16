@@ -1,9 +1,13 @@
-import React, { use, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../../Context/AuthContext/AuthContext";
 import toast from "react-hot-toast";
 
 const Register = () => {
+  useEffect(()=> {
+          document.title = "Register | FoodNest";
+      }, []);
+
   const { createUser, updateUser, setUser } = use(AuthContext);
   const [error, setError] = useState("");
   const location = useLocation();

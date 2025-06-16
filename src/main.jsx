@@ -6,7 +6,7 @@ import { RouterProvider } from "react-router";
 import AuthProvider from "./Provider/AuthProvider.jsx";
 import { Toaster } from "react-hot-toast";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import AnimatedCursor from "react-animated-cursor"
+import AnimatedCursor from "react-animated-cursor";
 
 const queryClient = new QueryClient();
 

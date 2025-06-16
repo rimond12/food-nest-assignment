@@ -9,21 +9,21 @@ const testimonials = [
     role: "CEO",
     text: "FoodNest made our food donations smooth and quick. The platform's simplicity and speed exceeded our expectations!",
     rating: 4,
-    image: "https://i.pravatar.cc/100?img=3",
+    image: "https://i.ibb.co/3YRwkWZC/portrait-interesting-young-man-winter-clothes-1.jpg",
   },
   {
     name: "Alisha Morgan",
     role: "Nutritionist",
     text: "A brilliant platform to fight food waste and connect with local communities. I love the eco-friendly concept!",
     rating: 5,
-    image: "https://i.pravatar.cc/100?img=5",
+    image: "https://i.ibb.co/BKHyjPLS/2148204587.jpg",
   },
   {
     name: "David Li",
     role: "Chef Partner",
     text: "Thanks to FoodNest, surplus meals from our restaurant now reach those in need. Truly impactful!",
     rating: 5,
-    image: "https://i.pravatar.cc/100?img=8",
+    image: "https://i.ibb.co/jZHLfxVt/47329.jpg",
   },
 ];
 

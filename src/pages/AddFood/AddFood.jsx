@@ -1,4 +1,4 @@
-import React, { use } from "react";
+import React, { use, useEffect } from "react";
 import { AuthContext } from "./../../Context/AuthContext/AuthContext";
 import axios from "axios";
 import Swal from "sweetalert2";
@@ -8,6 +8,9 @@ import { toast } from "react-hot-toast";
 const AddFood = () => {
   const { user } = use(AuthContext);
   const navigate = useNavigate();
+  useEffect(()=> {
+            document.title = "Add Food | FoodNest";
+        }, []);
 
   const handleAddFood = (e) => {
     e.preventDefault();

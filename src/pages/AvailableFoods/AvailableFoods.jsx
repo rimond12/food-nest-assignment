@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router";
 import { FiGrid } from "react-icons/fi";
 import { TfiLayoutGrid3Alt } from "react-icons/tfi";
@@ -9,6 +9,10 @@ const AvailableFoods = () => {
   const [searchText, setSearchText] = useState("");
   const [sortOrder, setSortOrder] = useState("asc");
   const [twoColumn, setTwoColumn] = useState(false);
+  useEffect(()=> {
+          document.title = "Avaiable Food | FoodNest";
+      }, []);
+
 
   const { data = [], isLoading } = useQuery({
     queryKey: ["availableFoods"],
