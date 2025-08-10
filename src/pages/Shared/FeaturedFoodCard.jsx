@@ -29,9 +29,9 @@ const FeaturedFoodCard = ({ food, index }) => {
             {food_name}
           </h5>
         </a>
-        <p className="mb-3 font-normal text-gray-700 ">
+        {/* <p className="mb-3 font-normal text-gray-700 ">
           {notes}
-        </p>
+        </p> */}
         <div className="flex ">
           <h2 className=" text-orange-400 font-semibold text-center my-4">
             Available Quantity:{" "}

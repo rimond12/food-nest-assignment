@@ -49,7 +49,7 @@ const Navbar = () => {
 
   return (
     <div
-      className={`navbar md:px-15 lg:px-20 px-8 sticky top-0 z-50 py-5 transition-all duration-300 ease-in-out ${
+      className={`navbar md:px-25 lg:px-25 px-8 sticky top-0 z-50 py-5 transition-all duration-300 ease-in-out ${
         scrolled
           ? "bg-[#065f46] shadow-md"
           : "bg-transparent backdrop-blur-none "
