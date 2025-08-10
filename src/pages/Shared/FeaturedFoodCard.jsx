@@ -14,7 +14,7 @@ const FeaturedFoodCard = ({ food, index }) => {
         delay: index * 0.1,
       }}
       viewport={{ once: true, amount: 0.3 }}
-      className="max-w-2xl mx-auto bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700"
+      className="max-w-11/12 mx-auto bg-[#f5f9f1]  rounded-lg shadow-md "
     >
       <a href="#">
         <img
@@ -25,11 +25,11 @@ const FeaturedFoodCard = ({ food, index }) => {
       </a>
       <div className="p-5">
         <a href="#">
-          <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+          <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
             {food_name}
           </h5>
         </a>
-        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+        <p className="mb-3 font-normal text-gray-700 ">
           {notes}
         </p>
         <div className="flex ">
