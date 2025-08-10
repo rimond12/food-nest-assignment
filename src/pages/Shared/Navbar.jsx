@@ -35,6 +35,9 @@ const Navbar = () => {
       <li className="text-orange-400 font-extrabold hover:text-amber-600">
         <NavLink to="/availableFoods">Available Foods</NavLink>
       </li>
+      <li className="text-orange-400 font-extrabold hover:text-amber-600">
+        <NavLink to="/about">About</NavLink>
+      </li>
       {user && (
         <>
           <li className="text-orange-400 font-extrabold hover:text-amber-600">
