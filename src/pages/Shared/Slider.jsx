@@ -25,6 +25,8 @@ const Slider = () => {
   },
   {
     img: "https://i.ibb.co/60Q9Y4C2/medium-shot-people-collecting-food.jpg",
+
+    
     title: "Community Food Drive",
     desc: "Uniting communities to collect and redistribute surplus food, minimizing waste while supporting families and individuals facing food insecurity."
   },
