@@ -29,31 +29,34 @@ const Navbar = () => {
 
   const links = (
     <>
-      <li className="text-orange-400 font-extrabold  hover:text-amber-600 ">
+      <li className="text-orange-400 font-extrabold hover:text-amber-600 ">
         <NavLink to="/">Home</NavLink>
       </li>
-      <li className="text-orange-400 font-extrabold  hover:text-amber-600">
-        <NavLink to="/addFood">Add A Food</NavLink>
-      </li>
-      <li className="text-orange-400 font-extrabold  hover:text-amber-600">
+      <li className="text-orange-400 font-extrabold hover:text-amber-600">
         <NavLink to="/availableFoods">Available Foods</NavLink>
       </li>
-      <li className="text-orange-400 font-extrabold  hover:text-amber-600">
-        <NavLink to="/foodRequest">My Food Request</NavLink>
-      </li>
-      <li className="text-orange-400 font-extrabold  hover:text-amber-600">
-        <NavLink to="/manageMyFoods">Manage My Foods</NavLink>
-      </li>
+      {user && (
+        <>
+          <li className="text-orange-400 font-extrabold hover:text-amber-600">
+            <NavLink to="/addFood">Add A Food</NavLink>
+          </li>
+          <li className="text-orange-400 font-extrabold hover:text-amber-600">
+            <NavLink to="/foodRequest">My Food Request</NavLink>
+          </li>
+          <li className="text-orange-400 font-extrabold hover:text-amber-600">
+            <NavLink to="/manageMyFoods">Manage My Foods</NavLink>
+          </li>
+        </>
+      )} 
     </>
   );
 
   return (
     <div
-      className={`navbar md:px-25 lg:px-25 px-8 sticky top-0 z-50 py-5 transition-all duration-300 ease-in-out ${
-        scrolled
+      className={`navbar md:px-25 lg:px-25 px-8 sticky top-0 z-50 py-5 transition-all duration-300 ease-in-out ${scrolled
           ? "bg-[#065f46] shadow-md"
           : "bg-transparent backdrop-blur-none "
-      }`}
+        }`}
     >
       <div className="navbar-start">
         <div className="dropdown">
