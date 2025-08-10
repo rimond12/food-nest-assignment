@@ -129,7 +129,7 @@ const AvailableFoods = () => {
             return (
               <div
                 key={f._id}
-                className="bg-gradient-to-b from-[#f7f5f2] to-[#ece9e6] text-white shadow-md hover:shadow-lg hover:shadow-emerald-800 transition duration-300 max-w-xl mx-auto rounded-2xl"
+                className="bg-gradient-to-b from-[#f7f5f2] to-[#ece9e6] text-white shadow-md hover:shadow-lg hover:shadow-emerald-800 transition duration-300 max-w-11/12 mx-auto rounded-2xl"
               >
                 <figure className="px-10 pt-10">
                   <img
