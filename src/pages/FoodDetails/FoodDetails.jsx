@@ -3,6 +3,7 @@ import { useLoaderData } from "react-router";
 import { useState } from "react";
 import FoodReqModal from "./FoodReqModal";
 
+
 const FoodDetails = () => {
   const food = useLoaderData();
 
@@ -12,7 +13,7 @@ const FoodDetails = () => {
   }, []);
 
   return (
-    <div className="min-h-screen mt-20">
+       <div className="min-h-screen mt-20">
       <div className="max-w-4xl mx-auto px-6 py-10 bg-gradient-to-br from-white via-gray-50 to-gray-100 rounded-3xl shadow-2xl border border-gray-200 mt-12">
         <div className="relative overflow-hidden rounded-2xl shadow-lg group">
           <img
@@ -24,9 +25,7 @@ const FoodDetails = () => {
         </div>
 
         <div className="mt-8 space-y-5 text-gray-800">
-          <h2 className="text-4xl font-extrabold tracking-tight">
-            {food.food_name}
-          </h2>
+          <h2 className="text-4xl font-extrabold tracking-tight">{food.food_name}</h2>
 
           <div className="grid sm:grid-cols-2 gap-6 text-gray-700 text-[17px] leading-relaxed">
             <p>
@@ -38,9 +37,7 @@ const FoodDetails = () => {
               {food.donor_email}
             </p>
             <p>
-              <span className="font-semibold text-gray-900">
-                Pickup Location:
-              </span>{" "}
+              <span className="font-semibold text-gray-900">Pickup Location:</span>{" "}
               {food.location}
             </p>
             <p>
@@ -96,11 +93,7 @@ const FoodDetails = () => {
               strokeWidth="2"
               viewBox="0 0 24 24"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M12 4v16m8-8H4"
-              />
+              <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
             </svg>
             <span className="relative z-10">Request This Food</span>
           </button>
