@@ -1,12 +1,11 @@
 import React from "react";
 import Lottie from "lottie-react";
 import animationData from "../../assets/About.json";
-import { Link } from "react-router";
 
 const About = () => {
     return (
         <section className="min-h-screen flex flex-col md:flex-row items-center justify-center px-8 md:px-20 py-16 bg-white text-gray-800">
-        
+
             <div className="md:w-1/2 space-y-8 max-w-xl">
                 <h1 className="text-4xl font-semibold tracking-tight border-b-2 border-gray-300 pb-2">
                     About Food Nest

@@ -18,7 +18,7 @@ const RootApp = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setInitialLoading(false);
-    }, 2000); // 2 সেকেন্ড লোডার দেখাবে
+    }, 2000); 
     return () => clearTimeout(timer);
   }, []);
 
