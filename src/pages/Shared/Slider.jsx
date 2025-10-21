@@ -9,29 +9,27 @@ import "./Slider.css";
 const Slider = () => {
  const slides = [
   {
-    img: "https://i.ibb.co/BV2MbCr3/happy-family-havinf-dinner-together.webp",
+    img: "https://i.ibb.co.com/4n7gffMK/happy-family-havinf-dinner-together-1-2.webp",
     title: "Share a Meal, Share Happiness",
     desc: "Bringing families closer together by sharing nutritious, delicious meals that create lasting memories and strengthen bonds."
   },
   {
-    img: "https://i.ibb.co/LDntgMXY/enjoying-dinner-with-friends-top-view-group-people-having-dinner-together.jpg",
+    img: "https://i.ibb.co.com/0VMKXR8M/enjoying-dinner-with-friends-top-view-group-people-having-dinner-together.webp",
     title: "Friends at One Table",
     desc: "Celebrating friendship and connection through shared meals, laughter, and stories — making every gathering a special occasion."
   },
   {
-    img: "https://i.ibb.co/0RPXLVYK/merchant-giving-package-courier.jpg",
+    img: "https://i.ibb.co.com/HTnWYr64/merchant-giving-package-courier.webp",
     title: "Delivering Kindness",
     desc: "Providing fast, dependable food delivery services that bring warmth and comfort directly to the doorsteps of those in need."
   },
   {
-    img: "https://i.ibb.co/60Q9Y4C2/medium-shot-people-collecting-food.jpg",
-
-
+    img: "https://i.ibb.co.com/LdL36zYj/medium-shot-people-collecting-food.webp",
     title: "Community Food Drive",
-    desc: "Uniting communities  tto collect and redistribute surplus food, minimizing waste while supporting families and individuals facing food insecurity."
+    desc: "Uniting communities to collect and redistribute surplus food, minimizing waste while supporting families and individuals facing food insecurity."
   },
   {
-    img: "https://i.ibb.co/Kp4PvmtW/close-up-delivery-man-with-food-crate.jpg",
+    img: "https://i.ibb.co.com/d0SJ98B5/close-up-delivery-man-with-food-crate.webp",
     title: "Fresh & Healthy for All",
     desc: "Ensuring every household has access to fresh, healthy, and nutritious food, empowering people to lead happier, healthier lives."
   }
