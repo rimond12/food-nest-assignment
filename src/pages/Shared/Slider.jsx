@@ -4,7 +4,9 @@ import { Autoplay, Pagination, EffectFade, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
+import "react-loading-skeleton/dist/skeleton.css";
 import "./Slider.css";
+import SkeletonImageLoader from "./SkeletonImageLoader";
 
 const Slider = () => {
   const slides = [
@@ -14,22 +16,22 @@ const Slider = () => {
       desc: "Bringing families closer together by sharing nutritious, delicious meals that create lasting memories and strengthen bonds."
     },
     {
-      img: "https://i.ibb.co.com/0VMKXR8M/enjoying-dinner-with-friends-top-view-group-people-having-dinner-together.webp",
+      img: "/images/1.jpg",
       title: "Friends at One Table",
       desc: "Celebrating friendship and connection through shared meals, laughter, and stories — making every gathering a special occasion."
     },
     {
-      img: "https://i.ibb.co.com/HTnWYr64/merchant-giving-package-courier.webp",
+      img: "/images/3.jpg",
       title: "Delivering Kindness",
       desc: "Providing fast, dependable food delivery services that bring warmth and comfort directly to the doorsteps of those in need."
     },
     {
-      img: "https://i.ibb.co.com/LdL36zYj/medium-shot-people-collecting-food.webp",
+      img: "/images/2.jpg",
       title: "Community Food Drive",
       desc: "Uniting communities to collect and redistribute surplus food, minimizing waste while supporting families and individuals facing food insecurity."
     },
     {
-      img: "https://i.ibb.co.com/d0SJ98B5/close-up-delivery-man-with-food-crate.webp",
+      img: "/images/3.jpg",
       title: "Fresh & Healthy for All",
       desc: "Ensuring every household has access to fresh, healthy, and nutritious food, empowering people to lead happier, healthier lives."
     }
@@ -57,16 +59,14 @@ const Slider = () => {
   );
 };
 
-// 🔹 ছোট helper component for skeleton handling
+// 🔹 SlideItem with react-loading-skeleton, structure unchanged
 const SlideItem = ({ slide }) => {
   const [loading, setLoading] = useState(true);
 
   return (
     <div className="relative">
-      {/* Skeleton while image loading */}
-      {loading && (
-        <div className="w-full h-[550px] bg-gray-300 animate-pulse rounded-lg" />
-      )}
+      {/* Skeleton while image is loading */}
+      {loading && <SkeletonImageLoader className="w-full min-h-screen rounded-lg" />}
 
       <img
         src={slide.img}

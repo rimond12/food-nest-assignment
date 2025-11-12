@@ -4,7 +4,6 @@ import { Link } from "react-router";
 
 const FeaturedFoodCard = ({ food, index }) => {
   const { food_photo, food_name, notes, quantity, _id } = food;
-
   return (
     <motion.div
       initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }}

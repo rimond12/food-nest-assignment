@@ -42,7 +42,7 @@ const TestimonialSlider = () => {
      <div className="flex flex-col md:flex-row gap-5 justify-between items-center max-w-11/12 mx-auto">
        {/* Left Image */}
       <img
-        src="https://i.ibb.co/5gR0dCKh/1749632820656.png"
+        src="/images/5.webp"
         alt="Grocery bag"
         className="w-full md:w-1/3 rounded-xl object-cover"
       />

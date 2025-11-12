@@ -10,7 +10,7 @@ const FoodNewsLetter = () => {
           <div className="w-[90vw] max-w-[500px] h-[220px] md:h-90 flex items-center justify-center overflow-hidden">
             <div className="w-[220px] h-[220px] md:w-90 md:h-90 rounded-full bg-yellow-400 relative z-0" />
             <img
-              src="https://i.ibb.co/N2W44Z2H/portrait-astonished-man-holding-paper-bag.png"
+              src="/images/6.webp"
               alt="Farmer with vegetables"
               className="w-full absolute h-[550px] -top-36  object-cover"
             />
